@@ -1,41 +1,508 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chatbase Chatbot</title>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-    }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-  </style>
-</head>
-<body>
-  <iframe
-    src="https://www.chatbase.co/chatbot-iframe/ddGxUPA2Q_f7meinEgYYs"
-    title="Chatbase Chatbot"
-  ></iframe>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello Geojit - Open Free Demat Account</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-  <script>
-    // Optional Chatbase script
-    window.embeddedChatbotConfig = {
-      chatbotId: "ddGxUPA2Q_f7meinEgYYs",
-      domain: "www.chatbase.co",
-    };
-  </script>
-  <script
-    src="https://www.chatbase.co/embed.min.js"
-    chatbotId="ddGxUPA2Q_f7meinEgYYs"
-    domain="www.chatbase.co"
-    defer
-  ></script>
-</body>
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Header Styles */
+      .header {
+        background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+        color: white;
+        padding: 1rem 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff;
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-menu a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .nav-menu a:hover {
+        color: #ffd700;
+      }
+
+      /* Hero Section */
+      .hero {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 120px 0 80px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="a" cx="50%" cy="40%"><stop offset="0%" stop-color="%23FFF" stop-opacity="0.1"/><stop offset="100%" stop-color="%23FFF" stop-opacity="0"/></radialGradient></defs><rect width="100" height="20" fill="url(%23a)"/></svg>')
+          repeat;
+        opacity: 0.3;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      .cta-button {
+        background: linear-gradient(45deg, #ff6b6b, #ffa500);
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        text-decoration: none;
+        display: inline-block;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+      }
+
+      /* Features Section */
+      .features {
+        padding: 80px 0;
+        background: #f8f9fa;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        color: #2c3e50;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: #667eea;
+      }
+
+      .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #2c3e50;
+      }
+
+      .feature-card p {
+        color: #6c757d;
+        line-height: 1.6;
+      }
+
+      /* Services Section */
+      .services {
+        padding: 80px 0;
+        background: white;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .service-item {
+        padding: 1.5rem;
+        border: 2px solid #e9ecef;
+        border-radius: 10px;
+        text-align: center;
+        transition: all 0.3s;
+      }
+
+      .service-item:hover {
+        border-color: #667eea;
+        background: #f8f9ff;
+      }
+
+      .service-item h4 {
+        color: #2c3e50;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Footer */
+      .footer {
+        background: #2c3e50;
+        color: white;
+        padding: 3rem 0 1rem;
+        text-align: center;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-section h4 {
+        margin-bottom: 1rem;
+        color: #ffd700;
+      }
+
+      .footer-section ul {
+        list-style: none;
+      }
+
+      .footer-section ul li {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-section ul li a {
+        color: #bdc3c7;
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-section ul li a:hover {
+        color: #ffd700;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid #34495e;
+        padding-top: 1rem;
+        margin-top: 2rem;
+        color: #bdc3c7;
+      }
+
+      /* Chatbase will handle the chatbot - removed custom chat styles */
+
+      @keyframes bounce {
+        0%,
+        20%,
+        53%,
+        80%,
+        100% {
+          animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+          transform: translate3d(0, 0, 0);
+        }
+        40%,
+        43% {
+          animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+          transform: translate3d(0, -5px, 0);
+        }
+        70% {
+          animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+          transform: translate3d(0, -3px, 0);
+        }
+        90% {
+          transform: translate3d(0, -1px, 0);
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .nav-menu {
+          display: none;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .hero p {
+          font-size: 1rem;
+        }
+
+        .features-grid,
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .chat-modal {
+          width: calc(100% - 40px);
+          right: 20px;
+          left: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <div class="logo">GEOJIT</div>
+          <ul class="nav-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Open a Free Demat Account</h1>
+          <p>
+            Start investing today with Zero AMC until 31st March 2025. Join
+            millions of investors and build your wealth with India's leading
+            financial services.
+          </p>
+          <a href="#" class="cta-button">Open Account Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+      <div class="container">
+        <h2 class="section-title">Why Choose Geojit?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">💰</div>
+            <h3>Zero AMC</h3>
+            <p>
+              No annual maintenance charges until March 2025. Start your
+              investment journey without any hidden costs.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Digital Platform</h3>
+            <p>
+              Trade seamlessly on our award-winning mobile app and web platform
+              with real-time market data.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎯</div>
+            <h3>Expert Research</h3>
+            <p>
+              Get access to comprehensive research reports and investment
+              recommendations from our expert team.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Secure Trading</h3>
+            <p>
+              Bank-grade security with 256-bit encryption ensures your
+              investments and data are always protected.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">⚡</div>
+            <h3>Fast Execution</h3>
+            <p>
+              Lightning-fast order execution with minimal latency for better
+              trading performance.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🌍</div>
+            <h3>Global Reach</h3>
+            <p>
+              Access international markets and diversify your portfolio across
+              global opportunities.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="container">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-grid">
+          <div class="service-item">
+            <h4>Equity Trading</h4>
+            <p>Trade in NSE & BSE with competitive brokerage</p>
+          </div>
+          <div class="service-item">
+            <h4>Mutual Funds</h4>
+            <p>Direct mutual fund investments with zero commission</p>
+          </div>
+          <div class="service-item">
+            <h4>F&O Trading</h4>
+            <p>Futures and Options trading with advanced tools</p>
+          </div>
+          <div class="service-item">
+            <h4>IPO Investment</h4>
+            <p>Apply for IPOs directly from your account</p>
+          </div>
+          <div class="service-item">
+            <h4>Commodities</h4>
+            <p>Trade in gold, silver, and other commodities</p>
+          </div>
+          <div class="service-item">
+            <h4>Currency Trading</h4>
+            <p>Forex trading with competitive margins</p>
+          </div>
+          <div class="service-item">
+            <h4>Portfolio Management</h4>
+            <p>Professional portfolio management services</p>
+          </div>
+          <div class="service-item">
+            <h4>Research & Advisory</h4>
+            <p>Expert market insights and stock recommendations</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chatbase Chatbot via iframe -->
+    <div class="container" style="margin-bottom: 40px">
+      <iframe
+        src="https://www.chatbase.co/chatbot-iframe/ddGxUPA2Q_f7meinEgYYs"
+        width="100%"
+        style="height: 100%; min-height: 700px"
+        frameborder="0"
+      ></iframe>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h4>Products</h4>
+            <ul>
+              <li><a href="#">Equity Trading</a></li>
+              <li><a href="#">Mutual Funds</a></li>
+              <li><a href="#">F&O Trading</a></li>
+              <li><a href="#">IPO</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Platforms</h4>
+            <ul>
+              <li><a href="#">SELFIE Mobile App</a></li>
+              <li><a href="#">Web Trading</a></li>
+              <li><a href="#">TraderX</a></li>
+              <li><a href="#">FundsGenie</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="#">Customer Care</a></li>
+              <li><a href="#">Help & Support</a></li>
+              <li><a href="#">Branch Locator</a></li>
+              <li><a href="#">Complaints</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Investor Relations</a></li>
+              <li><a href="#">Media</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 Geojit Financial Services. All rights reserved. | SEBI
+            Reg: INZ000104737
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scrolling for navigation
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
