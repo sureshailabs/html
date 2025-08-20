@@ -248,8 +248,6 @@
         color: #bdc3c7;
       }
 
-      /* Chatbase will handle the chatbot - removed custom chat styles */
-
       @keyframes bounce {
         0%,
         20%,
@@ -290,12 +288,6 @@
         .features-grid,
         .services-grid {
           grid-template-columns: 1fr;
-        }
-
-        .chat-modal {
-          width: calc(100% - 40px);
-          right: 20px;
-          left: 20px;
         }
       }
     </style>
@@ -480,11 +472,13 @@
     </footer>
 
     <!-- Chatbase Integration -->
+    <!-- Note: For local testing, ensure 'localhost' or '127.0.0.1' is added to allowed domains in Chatbase dashboard -->
+    <!-- For production, use HTTPS and add your domain to Chatbase allowed domains -->
     <script>
       window.chatbaseConfig = {
         chatbotId: "ddGxUPA2Q_f7meinEgYYs",
         showFloatingInitialMessages: true,
-        floatingInitialMessagesDelay: 3000,
+        floatingInitialMessagesDelay: 1000,
         floatingInitialMessages: [
           "Need help? Ask me anytime!",
           "Stuck here? Chat for quick support.",
@@ -493,6 +487,7 @@
           "Still waiting? Get answers here.",
         ],
       };
+      console.log("Chatbase config initialized with ID: ddGxUPA2Q_f7meinEgYYs");
     </script>
     <script>
       (function () {
@@ -513,20 +508,50 @@
           });
         }
         const onLoad = function () {
+          console.log("Attempting to load Chatbase script...");
           const script = document.createElement("script");
           script.src = "https://www.chatbase.co/embed.min.js";
           script.id = "ddGxUPA2Q_f7meinEgYYs";
           script.domain = "www.chatbase.co";
+          script.async = true;
+          script.onload = () => console.log("Chatbase script loaded successfully");
+          script.onerror = () => {
+            console.error("Failed to load Chatbase script. Check network, domain restrictions, or HTTPS.");
+            const fallback = document.createElement("div");
+            fallback.style.position = "fixed";
+            fallback.style.bottom = "20px";
+            fallback.style.right = "20px";
+            fallback.style.padding = "10px";
+            fallback.style.background = "#ff6b6b";
+            fallback.style.color = "white";
+            fallback.style.borderRadius = "5px";
+            fallback.textContent = "Chatbot failed to load. Please try again later.";
+            document.body.appendChild(fallback);
+          };
           document.body.appendChild(script);
         };
         if (document.readyState === "complete") {
+          console.log("Document already loaded, running onLoad...");
           onLoad();
         } else {
-          window.addEventListener("load", onLoad);
+          window.addEventListener("load", () => {
+            console.log("Document loaded, running onLoad...");
+            onLoad();
+          });
         }
       })();
     </script>
-
+    <script>
+      // Manual trigger to test Chatbase pop-up
+      setTimeout(() => {
+        if (window.chatbase && window.chatbase("getState") === "initialized") {
+          console.log("Chatbase initialized, triggering pop-up manually...");
+          window.chatbase("showMessage", "Manual test: Hello!");
+        } else {
+          console.error("Chatbase not initialized after 5 seconds");
+        }
+      }, 5000);
+    </script>
     <script>
       // Smooth scrolling for navigation
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
