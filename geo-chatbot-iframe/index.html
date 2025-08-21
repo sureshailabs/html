@@ -248,58 +248,7 @@
         color: #bdc3c7;
       }
 
-      /* Chatbase will handle the chatbot - removed custom chat styles */
-
-      @keyframes bounce {
-        0%,
-        20%,
-        53%,
-        80%,
-        100% {
-          animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-          transform: translate3d(0, 0, 0);
-        }
-        40%,
-        43% {
-          animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-          transform: translate3d(0, -5px, 0);
-        }
-        70% {
-          animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
-          transform: translate3d(0, -3px, 0);
-        }
-        90% {
-          transform: translate3d(0, -1px, 0);
-        }
-      }
-
-      /* Responsive Design */
-      @media (max-width: 768px) {
-        .nav-menu {
-          display: none;
-        }
-
-        .hero h1 {
-          font-size: 2rem;
-        }
-
-        .hero p {
-          font-size: 1rem;
-        }
-
-        .features-grid,
-        .services-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .chat-modal {
-          width: calc(100% - 40px);
-          right: 20px;
-          left: 20px;
-        }
-      }
-
-      /* Floating Chatbot Iframe Styles */
+      /* Chatbot */
       #chatbot-iframe-container {
         position: fixed;
         bottom: 32px;
@@ -309,6 +258,13 @@
         border-radius: 16px;
         background: transparent;
       }
+
+      #chatbot-iframe-container iframe {
+        width: 360px;
+        height: 500px;
+        border-radius: 16px;
+      }
+
       @media (max-width: 600px) {
         #chatbot-iframe-container {
           right: 8px;
@@ -316,7 +272,7 @@
         }
         #chatbot-iframe-container iframe {
           width: 90vw;
-          height: 50vh;
+          height: 60vh;
         }
       }
     </style>
@@ -450,13 +406,11 @@
       </div>
     </section>
 
-    <!-- Chatbase Chatbot via iframe (floating at bottom right, compact size) -->
+    <!-- Chatbase Chatbot via iframe -->
     <div id="chatbot-iframe-container">
       <iframe
         src="https://www.chatbase.co/chatbot-iframe/ddGxUPA2Q_f7meinEgYYs"
-        width="280"
-        height="400"
-        style="border: none; border-radius: 16px"
+        style="border: none"
         frameborder="0"
       ></iframe>
     </div>
