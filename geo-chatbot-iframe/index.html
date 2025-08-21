@@ -298,6 +298,27 @@
           left: 20px;
         }
       }
+
+      /* Floating Chatbot Iframe Styles */
+      #chatbot-iframe-container {
+        position: fixed;
+        bottom: 32px;
+        right: 32px;
+        z-index: 9999;
+        box-shadow: 0 8px 32px rgba(30, 60, 114, 0.18);
+        border-radius: 16px;
+        background: transparent;
+      }
+      @media (max-width: 600px) {
+        #chatbot-iframe-container {
+          right: 8px;
+          bottom: 8px;
+        }
+        #chatbot-iframe-container iframe {
+          width: 90vw;
+          height: 50vh;
+        }
+      }
     </style>
   </head>
   <body>
@@ -429,12 +450,13 @@
       </div>
     </section>
 
-    <!-- Chatbase Chatbot via iframe -->
-    <div class="container" style="margin-bottom: 40px">
+    <!-- Chatbase Chatbot via iframe (floating at bottom right, compact size) -->
+    <div id="chatbot-iframe-container">
       <iframe
         src="https://www.chatbase.co/chatbot-iframe/ddGxUPA2Q_f7meinEgYYs"
-        width="100%"
-        style="height: 100%; min-height: 700px"
+        width="280"
+        height="400"
+        style="border: none; border-radius: 16px"
         frameborder="0"
       ></iframe>
     </div>
